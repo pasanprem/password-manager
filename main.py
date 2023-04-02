@@ -31,24 +31,24 @@ label_password.grid(column=0,row=3)
 ## INPUTS________________________________
 # Website input (1,1,span=2)
 input_website = Entry(width=35)
-input_website.grid(column=1,row=1,columnspan=2)
+input_website.grid(column=1,row=1,columnspan=2,sticky="EW")
 
 # Email.. input (1,2,span=2)
 input_email = Entry(width=35)
-input_email.grid(column=1,row=2,columnspan=2)
+input_email.grid(column=1,row=2,columnspan=2,sticky="EW")
 
 # Password input (1,3)
 input_password = Entry(width=21)
-input_password.grid(column=1,row=3)
+input_password.grid(column=1,row=3,sticky="EW")
 
 ## BUTTONS____________________________________
 # Generate Password button (2,3)
 button_password = Button(text="Generate Password")
-button_password.grid(column=2,row=3)
+button_password.grid(column=2,row=3,sticky="W")
 
 # Add button (1,4,span=2)
 button_add = Button(text="Add",width=36)
-button_add.grid(column=1,row=4,columnspan=2)
+button_add.grid(column=1,row=4,columnspan=2,sticky="EW")
 
 
 window.mainloop()
