@@ -14,6 +14,11 @@ def save():
     file.write(data_row)
     file.close()
 
+    input_website.delete(0,'end')
+    input_email.delete(0, 'end')
+    input_email.insert(0,"pasan@example.com")
+    input_password.delete(0,'end')
+
 
 
 # ---------------------------- UI SETUP ------------------------------- #
