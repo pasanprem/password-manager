@@ -5,15 +5,18 @@ from tkinter import *
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
+    # Save inputs to variables and create one string
     var_website = input_website.get()
     var_email = input_email.get()
     var_password = input_password.get()
     data_row = f"{var_website} | {var_email} | {var_password}\n"
 
+    # Write string to the file
     file = open("data.txt","a")
     file.write(data_row)
     file.close()
 
+    # Clear the existing fields
     input_website.delete(0,'end')
     input_email.delete(0, 'end')
     input_email.insert(0,"pasan@example.com")
