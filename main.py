@@ -1,6 +1,42 @@
 from tkinter import *
 from tkinter import messagebox
+from random import choice, randint, shuffle
+import pyperclip
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+#Password Generator Project
+def generate_password():
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    # nr_letters = random.randint(8, 10)
+    # nr_symbols = random.randint(2, 4)
+    # nr_numbers = random.randint(2, 4)
+    #
+    # password_letters = [random.choice(letters) for _ in range(nr_letters)]
+    # password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
+    # password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
+
+    password_letters = [choice(letters) for _ in range(randint(8, 10))]
+    password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
+    password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
+
+
+
+    password_list = password_letters + password_symbols + password_numbers
+
+    shuffle(password_list)
+
+    # password = ""
+    # for char in password_list:
+    #   password += char
+
+    password = "".join(password_list)
+
+    input_password.delete(0, 'end')
+    input_password.insert(0,password)
+    pyperclip.copy(password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
@@ -71,7 +107,7 @@ input_password.grid(column=1,row=3,sticky="EW")
 
 ## BUTTONS____________________________________
 # Generate Password button (2,3)
-button_password = Button(text="Generate Password")
+button_password = Button(text="Generate Password",command=generate_password)
 button_password.grid(column=2,row=3,sticky="W")
 
 # Add button (1,4,span=2)
